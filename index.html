@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#184137" />
+    <meta name="description" content="안동 1박 2일 여행에서 다음 장소를 쉽게 고르는 모바일 여행 도우미" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <link rel="apple-touch-icon" href="./icon-180.png" />
+    <title>안동 여행 도우미</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">8월 7일 폭염 대비</p>
+          <h1>안동 여행 도우미</h1>
+        </div>
+        <button class="plain-button" id="resetButton" type="button">처음부터</button>
+      </header>
+
+      <main id="app" class="app"></main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
