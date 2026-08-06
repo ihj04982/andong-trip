@@ -408,11 +408,6 @@ const categoryText = {
     title: "구경할 곳",
     helper: "야외가 많습니다. 11~16시는 더위 경고를 꼭 확인하세요.",
     empty: "관광지 후보는 모두 다녀왔어요."
-  },
-  cool: {
-    title: "지금은 시원한 곳",
-    helper: "폭염 시간대에 쉬기 좋은 실내 장소만 모았습니다.",
-    empty: "남은 실내 후보가 없어요."
   }
 };
 
@@ -586,7 +581,6 @@ function renderHome() {
         ${choiceButton("sight", "구경 가기", "월영교, 하회마을, 도산서원")}
       </div>
       <div class="actions">
-        <button class="secondary-button" data-action="show-category" data-category="cool" type="button">덥고 지쳤어요</button>
         <button class="secondary-button" data-action="show-detail" data-id="stay-usim" type="button">숙소 주소 보기</button>
         <button class="secondary-button" data-action="show-references" type="button">터미널 보기</button>
       </div>
@@ -649,7 +643,7 @@ function renderCategory(category, subcategory = "all") {
   const text = categoryText[category];
   const group = subcategory === "all" ? null : subcategoryText[category]?.[subcategory];
   const list = sortedCandidates(category, subcategory);
-  const backLabel = category === "cool" ? "처음 화면" : categoryBackLabel(category);
+  const backLabel = categoryBackLabel(category);
 
   app.innerHTML = `
     <button class="plain-button back-button" data-action="back" data-category="${category}" type="button">← ${backLabel}</button>
@@ -854,11 +848,7 @@ function handleAction(event) {
     window.history.back();
   }
   if (action === "show-category") {
-    if (category === "cool") {
-      renderCategory(category);
-    } else {
-      renderSubcategories(category);
-    }
+    renderSubcategories(category);
     pushHistoryEntry();
   }
   if (action === "show-category-list") {
@@ -968,7 +958,6 @@ function resetTrip() {
 
 function sortedCandidates(category, subcategory = "all") {
   const candidates = selectablePlaces().filter((place) => {
-    if (category === "cool") return place.indoor && !state.visited.includes(place.id);
     if (place.category !== category || state.visited.includes(place.id)) return false;
     return subcategory === "all" || place.subcategory === subcategory;
   });

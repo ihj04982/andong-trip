@@ -1,4 +1,4 @@
-const CACHE_NAME = "andong-trip-v4";
+const CACHE_NAME = "andong-trip-v5";
 const ASSETS = [
   "./",
   "./index.html",
