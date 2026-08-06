@@ -1,4 +1,4 @@
-const STORAGE_KEY = "andong-trip-state-v1";
+const STORAGE_KEY = "andong-trip-state-v2";
 
 const places = [
   {
@@ -7,8 +7,8 @@ const places = [
     category: "stay",
     typeLabel: "숙소",
     address: "경북 안동시 와룡면 동악골길 157-26",
-    lat: 36.6027,
-    lng: 128.7789,
+    lat: 36.5976,
+    lng: 128.784,
     indoor: true,
     fixed: true,
     summary: "오늘 밤 돌아올 고정 숙소예요. 선택 후보가 아니라 언제든 주소만 확인합니다.",
@@ -22,29 +22,14 @@ const places = [
     category: "reference",
     typeLabel: "참고",
     address: "경북 안동시 경동로 130",
-    lat: 36.5748,
-    lng: 128.6712,
+    lat: 36.5744,
+    lng: 128.6761,
     indoor: true,
     fixed: true,
     summary: "도착/출발 기준점으로만 쓰는 참고 지점입니다.",
     hours: "터미널 운영",
-    parking: "터미널 주차장 확인",
+    parking: "필요할 때만 주소 확인용으로 둡니다.",
     tip: "여행 시작 위치로 쓰기 좋습니다."
-  },
-  {
-    id: "wolyeong-parking",
-    name: "월영교 공영주차장",
-    category: "reference",
-    typeLabel: "주차",
-    address: "경북 안동시 상아동 502-1",
-    lat: 36.5767,
-    lng: 128.7648,
-    indoor: false,
-    fixed: true,
-    summary: "월영교, 월영당, 민속촌 주변을 갈 때 쓰는 참고 주차장입니다.",
-    hours: "상시 이용",
-    parking: "공영주차장",
-    tip: "월영교 주변 이동의 기준점으로 두면 편합니다."
   },
   {
     id: "iljik",
@@ -53,8 +38,8 @@ const places = [
     subcategory: "fish",
     typeLabel: "식당",
     address: "경북 안동시 경동로 676 1층",
-    lat: 36.5637,
-    lng: 128.7312,
+    lat: 36.5629,
+    lng: 128.7319,
     indoor: true,
     summary: "안동 간고등어 구이·조림 정식으로 유명한 오래된 한식당.",
     hours: "08:00~21:00, 라스트오더 20:30, 월요일 휴무",
@@ -68,8 +53,8 @@ const places = [
     subcategory: "galbi",
     typeLabel: "식당",
     address: "경북 안동시 경동로 677-8",
-    lat: 36.5638,
-    lng: 128.7315,
+    lat: 36.5635,
+    lng: 128.7324,
     indoor: true,
     summary: "안동 갈비골목 쪽 한우갈비 식당. 고기 식사가 필요할 때 선택.",
     hours: "대체로 11:00~21:30",
@@ -83,8 +68,8 @@ const places = [
     subcategory: "set",
     typeLabel: "식당",
     address: "경북 안동시 석주로 193 1,2층",
-    lat: 36.5751,
-    lng: 128.7602,
+    lat: 36.577,
+    lng: 128.7577,
     indoor: true,
     summary: "월영교 근처에서 찜닭과 간고등어를 한 번에 먹기 좋은 식당.",
     hours: "11:00~21:00, 15:00~16:30 브레이크타임, 20:00 라스트오더",
@@ -98,8 +83,8 @@ const places = [
     subcategory: "jjimdak",
     typeLabel: "식당",
     address: "경북 안동시 번영길 10 1층",
-    lat: 36.5639,
-    lng: 128.7319,
+    lat: 36.5655,
+    lng: 128.7276,
     indoor: true,
     summary: "안동구시장 찜닭골목의 찜닭집. 넓은 실내에서 든든하게 먹기 좋아요.",
     hours: "09:30~21:00, 라스트오더 19:50, 연중무휴 안내",
@@ -113,13 +98,73 @@ const places = [
     subcategory: "jjimdak",
     typeLabel: "식당",
     address: "경북 안동시 번영1길 47 1층",
-    lat: 36.5637,
-    lng: 128.7322,
+    lat: 36.5654,
+    lng: 128.7279,
     indoor: true,
     summary: "안동찜닭 원조 분위기의 시장 식당. 당면과 간장 양념 찜닭이 대표.",
     hours: "08:30~20:00, 라스트오더 19:30",
     parking: "안동구시장 공영주차장 이용 권장.",
     tip: "안동에 왔으니 찜닭을 먹자는 분위기일 때 가장 직관적인 선택입니다."
+  },
+  {
+    id: "sancheong",
+    name: "산청식당",
+    category: "food",
+    subcategory: "korean",
+    typeLabel: "식당",
+    address: "경북 안동시 대석3길 14-1",
+    lat: 36.5661,
+    lng: 128.7257,
+    indoor: true,
+    summary: "시내 대석동 쪽 한식당. 든든한 한식이 필요할 때 후보.",
+    hours: "방문 전 영업 여부를 확인하세요.",
+    parking: "주변 주차 공간을 확인하세요.",
+    tip: "구시장·시내 동선에 있을 때 식사 후보로 넣기 좋습니다."
+  },
+  {
+    id: "geumjae",
+    name: "동악골금재가든",
+    category: "food",
+    subcategory: "garden",
+    typeLabel: "식당",
+    address: "경북 안동시 와룡면 동악골길 166 1층",
+    lat: 36.5968,
+    lng: 128.7841,
+    indoor: true,
+    summary: "숙소 바로 근처 가든 식당. 저녁이나 체크인 전후로 가기 좋아요.",
+    hours: "방문 전 영업 여부를 확인하세요.",
+    parking: "가게 주변 주차 안내가 많아요.",
+    tip: "스테이유심과 붙어 있어 이동 부담이 거의 없습니다."
+  },
+  {
+    id: "sinchon-jokbal",
+    name: "신촌족발보쌈",
+    category: "food",
+    subcategory: "jokbal",
+    typeLabel: "식당",
+    address: "경북 안동시 송하1길 124 1층",
+    lat: 36.5677,
+    lng: 128.6934,
+    indoor: true,
+    summary: "옥동 쪽 족발·보쌈집. 고기 안주나 야식으로 든든하게.",
+    hours: "방문 전 영업 여부를 확인하세요.",
+    parking: "매장 근처 주차 가능 여부를 확인하세요.",
+    tip: "시내 서쪽(옥동) 동선일 때 선택하기 좋습니다."
+  },
+  {
+    id: "hyoja-chicken",
+    name: "효자통닭",
+    category: "food",
+    subcategory: "chicken",
+    typeLabel: "식당",
+    address: "경북 안동시 당북길 54 1층",
+    lat: 36.5661,
+    lng: 128.7189,
+    indoor: true,
+    summary: "당북동 통닭집. 가볍게 치킨이 당길 때 후보.",
+    hours: "방문 전 영업 여부를 확인하세요.",
+    parking: "주변 주차 공간을 확인하세요.",
+    tip: "시내에서 캐주얼하게 먹을 때 좋습니다."
   },
   {
     id: "mammoth",
@@ -128,8 +173,8 @@ const places = [
     subcategory: "bakery",
     typeLabel: "카페/간식",
     address: "경북 안동시 문화광장길 34 1층",
-    lat: 36.5645,
-    lng: 128.7304,
+    lat: 36.5646,
+    lng: 128.731,
     indoor: true,
     summary: "크림치즈빵으로 유명한 안동 대표 베이커리. 실내 좌석도 있어요.",
     hours: "08:30~19:00, 설·추석 당일 휴무",
@@ -143,8 +188,8 @@ const places = [
     subcategory: "hanok",
     typeLabel: "카페",
     address: "경북 안동시 민속촌길 26",
-    lat: 36.5762,
-    lng: 128.7636,
+    lat: 36.5789,
+    lng: 128.7646,
     indoor: true,
     summary: "월영교 근처 한옥 카페. 대마씨앗라떼, 쑥 디저트, 야경 동선에 좋아요.",
     hours: "10:00~22:00",
@@ -159,7 +204,7 @@ const places = [
     typeLabel: "간식",
     address: "경북 안동시 문화광장길 40-5 1층",
     lat: 36.5649,
-    lng: 128.7301,
+    lng: 128.7313,
     indoor: true,
     summary: "수제 젤라또 전문점. 양반쌀, 막걸리 등 지역색 있는 맛이 유명해요.",
     hours: "화~일 12:00~18:00, 월요일 휴무, 재료 소진 시 조기 마감 가능",
@@ -173,8 +218,8 @@ const places = [
     subcategory: "hanok",
     typeLabel: "카페",
     address: "경북 안동시 민속촌길 200",
-    lat: 36.5794,
-    lng: 128.7622,
+    lat: 36.5724,
+    lng: 128.768,
     indoor: true,
     summary: "한옥 리조트 안의 조용한 카페. 월영교·민속촌권에서 쉬기 좋아요.",
     hours: "08:00~18:00",
@@ -188,13 +233,28 @@ const places = [
     subcategory: "coffee",
     typeLabel: "카페",
     address: "경북 안동시 옥동길 32 1층",
-    lat: 36.5604,
-    lng: 128.7003,
+    lat: 36.56,
+    lng: 128.6999,
     indoor: true,
     summary: "안동 로컬 커피 브랜드 본점. 로스팅 커피와 베이커리 메뉴가 강점.",
     hours: "월~토 09:00~21:00, 일 09:00~18:00",
     parking: "가게 앞 주차 가능 안내가 있어요.",
     tip: "시내 서쪽으로 움직일 때 쉬어가기 좋습니다."
+  },
+  {
+    id: "sahyuwon",
+    name: "사효원",
+    category: "cafe",
+    subcategory: "tea",
+    typeLabel: "차/카페",
+    address: "경북 안동시 먼달길 164",
+    lat: 36.5504,
+    lng: 128.7243,
+    indoor: true,
+    summary: "전통 찻집. 한옥 분위기에서 차 한잔하며 쉬기 좋아요.",
+    hours: "방문 전 영업 여부를 확인하세요.",
+    parking: "주변 주차 공간을 확인하세요.",
+    tip: "커피 대신 전통차가 당길 때 선택하세요."
   },
   {
     id: "hahoe",
@@ -203,8 +263,8 @@ const places = [
     subcategory: "village",
     typeLabel: "관광지",
     address: "경북 안동시 풍천면 하회리 1176-1",
-    lat: 36.5391,
-    lng: 128.5182,
+    lat: 36.539,
+    lng: 128.5181,
     indoor: false,
     summary: "유네스코 세계유산 전통마을. 넓고 야외 도보가 많아 폭염엔 시간 선택이 중요해요.",
     hours: "하절기 09:00~18:00, 입장마감 17:30",
@@ -218,13 +278,58 @@ const places = [
     subcategory: "seowon",
     typeLabel: "관광지",
     address: "경북 안동시 풍천면 병산길 386",
-    lat: 36.5397,
-    lng: 128.5662,
+    lat: 36.5406,
+    lng: 128.5526,
     indoor: false,
     summary: "낙동강과 만대루가 아름다운 서원. 야외 관람이라 더위와 햇빛 대비가 필요해요.",
     hours: "하절기 09:00~18:00",
     parking: "병산서원 동쪽 무료 주차장 안내가 많아요.",
     tip: "하회마을과 묶기 좋지만 한낮에는 체력 소모가 큽니다."
+  },
+  {
+    id: "dosanseowon",
+    name: "도산서원",
+    category: "sight",
+    subcategory: "seowon",
+    typeLabel: "관광지",
+    address: "경북 안동시 도산면 도산서원길 154",
+    lat: 36.7273,
+    lng: 128.8435,
+    indoor: false,
+    summary: "퇴계 이황을 기리는 유네스코 세계유산 서원. 도산·예끼마을 동선과 잘 맞아요.",
+    hours: "하절기 09:00~18:00 안내가 많아요.",
+    parking: "서원 입구 주차장을 이용하세요.",
+    tip: "예끼마을·군자마을과 묶어 북쪽 코스로 잡기 좋습니다."
+  },
+  {
+    id: "gunja",
+    name: "오천군자마을",
+    category: "sight",
+    subcategory: "village",
+    typeLabel: "관광지",
+    address: "경북 안동시 와룡면 군자리길 29",
+    lat: 36.6737,
+    lng: 128.8023,
+    indoor: false,
+    summary: "광산김씨 고택이 모인 전통마을. 안동호 풍경과 함께 둘러보기 좋아요.",
+    hours: "야외 관람 위주. 낮 시간 권장",
+    parking: "마을 입구 주차 공간을 이용하세요.",
+    tip: "도산서원 가는 길에 들르기 좋습니다."
+  },
+  {
+    id: "yekki",
+    name: "예끼마을",
+    category: "sight",
+    subcategory: "village",
+    typeLabel: "관광지",
+    address: "경북 안동시 도산면 선성길 14",
+    lat: 36.6995,
+    lng: 128.8124,
+    indoor: false,
+    summary: "예술이 입혀진 도산 서부리 마을. 벽화골목과 한옥 갤러리를 천천히 걷기 좋아요.",
+    hours: "마을 산책은 낮~해질녘 권장",
+    parking: "마을 입구 주차 공간을 이용하세요.",
+    tip: "도산서원과 묶으면 북쪽 코스가 완성됩니다."
   },
   {
     id: "imcheonggak",
@@ -233,13 +338,58 @@ const places = [
     subcategory: "short",
     typeLabel: "관광지",
     address: "경북 안동시 임청각길 63",
-    lat: 36.5689,
-    lng: 128.7386,
+    lat: 36.5651,
+    lng: 128.7447,
     indoor: false,
     summary: "독립운동가 석주 이상룡 선생의 고택. 짧게 들르기 좋은 역사 코스.",
-    hours: "주요 고택 관람은 낮 시간 권장. 8월 9일까지 공유관 임시 운영 10:00~22:00 보도 있음",
+    hours: "주요 고택 관람은 낮 시간 권장",
     parking: "주변 정비 주차장 이용 가능 안내가 있어요.",
     tip: "월영교·시내 동선 중간에 넣기 좋습니다."
+  },
+  {
+    id: "manhyujeong",
+    name: "만휴정",
+    category: "sight",
+    subcategory: "pavilion",
+    typeLabel: "관광지",
+    address: "경북 안동시 길안면 묵계하리길 42",
+    lat: 36.4104,
+    lng: 128.9099,
+    indoor: false,
+    summary: "계곡과 정자가 아름다운 길안면 명소. 이동 거리가 있어 따로 시간 잡기 좋아요.",
+    hours: "야외 관람. 낮 시간 권장",
+    parking: "입구 근처 주차 후 걸어 들어가세요.",
+    tip: "시내에서 꽤 멀어서 전용 코스로 잡는 편이 낫습니다."
+  },
+  {
+    id: "nakgang",
+    name: "낙강물길공원",
+    category: "sight",
+    subcategory: "park",
+    typeLabel: "관광지",
+    address: "경북 안동시 상아동 423",
+    lat: 36.5879,
+    lng: 128.7709,
+    indoor: false,
+    summary: "월영교 위쪽 물길 공원. 산책과 사진 찍기 좋은 야외 코스.",
+    hours: "상시 개방 안내가 많아요.",
+    parking: "월영교 주변 공영주차장을 이용하면 편합니다.",
+    tip: "월영교·월영당과 이어서 걷기 좋습니다."
+  },
+  {
+    id: "wolyeonggyo",
+    name: "월영교",
+    category: "sight",
+    subcategory: "bridge",
+    typeLabel: "관광지",
+    address: "경북 안동시 상아동 502-1",
+    lat: 36.5769,
+    lng: 128.7583,
+    indoor: false,
+    summary: "안동 대표 다리와 야경 명소. 낮에도 좋고 저녁 산책으로도 좋아요.",
+    hours: "상시 개방. 야경은 해진 뒤",
+    parking: "월영교 공영주차장을 목적지 도착용으로 쓰면 됩니다.",
+    tip: "주차장은 별도 장소가 아니라 월영교에 가기 위한 도착 지점입니다."
   }
 ];
 
@@ -287,6 +437,26 @@ const subcategoryText = {
       title: "한 번에 먹기",
       helper: "찜닭과 간고등어를 같이 고민할 때",
       empty: "세트형 후보는 다녀왔어요."
+    },
+    korean: {
+      title: "한식",
+      helper: "시내에서 든든한 한식이 필요할 때",
+      empty: "한식 후보는 다녀왔어요."
+    },
+    garden: {
+      title: "가든/숙소 근처",
+      helper: "숙소 옆에서 편하게 먹고 싶을 때",
+      empty: "가든 후보는 다녀왔어요."
+    },
+    jokbal: {
+      title: "족발/보쌈",
+      helper: "든든한 야식·고기 안주가 당길 때",
+      empty: "족발/보쌈 후보는 다녀왔어요."
+    },
+    chicken: {
+      title: "통닭",
+      helper: "가볍게 치킨이 먹고 싶을 때",
+      empty: "통닭 후보는 다녀왔어요."
     }
   },
   cafe: {
@@ -309,13 +479,18 @@ const subcategoryText = {
       title: "커피 본점",
       helper: "커피 맛과 실내 휴식이 우선일 때",
       empty: "커피 본점 후보는 다녀왔어요."
+    },
+    tea: {
+      title: "전통차",
+      helper: "커피 대신 찻집에서 쉬고 싶을 때",
+      empty: "전통차 후보는 다녀왔어요."
     }
   },
   sight: {
     village: {
-      title: "전통마을",
-      helper: "넓게 걷는 대표 관광 코스",
-      empty: "전통마을 후보는 다녀왔어요."
+      title: "마을",
+      helper: "전통마을·예술마을을 넓게 걷기",
+      empty: "마을 후보는 다녀왔어요."
     },
     seowon: {
       title: "서원",
@@ -326,6 +501,21 @@ const subcategoryText = {
       title: "짧게 보는 역사",
       helper: "시내 동선에서 부담 적게 들르기",
       empty: "짧은 역사 코스는 다녀왔어요."
+    },
+    pavilion: {
+      title: "정자/계곡",
+      helper: "만휴정처럼 풍경 좋은 정자 코스",
+      empty: "정자 후보는 다녀왔어요."
+    },
+    park: {
+      title: "공원/산책",
+      helper: "물길·공원을 가볍게 걷기",
+      empty: "공원 후보는 다녀왔어요."
+    },
+    bridge: {
+      title: "월영교",
+      helper: "다리 산책과 야경이 목적일 때",
+      empty: "월영교는 다녀왔어요."
     }
   }
 };
@@ -391,25 +581,14 @@ function renderHome() {
         ${hotNow ? `<span class="pill hot">11~16시 야외 주의</span>` : ""}
       </div>
       <div class="choice-grid">
-        ${choiceButton("food", "밥 먹으러", "찜닭, 갈비, 간고등어")}
-        ${choiceButton("cafe", "카페 가기", "커피, 빵, 젤라또")}
-        ${choiceButton("sight", "구경 가기", "하회마을, 서원, 고택")}
+        ${choiceButton("food", "밥 먹으러", "찜닭, 갈비, 통닭, 족발")}
+        ${choiceButton("cafe", "카페 가기", "커피, 빵, 젤라또, 전통차")}
+        ${choiceButton("sight", "구경 가기", "월영교, 하회마을, 도산서원")}
       </div>
       <div class="actions">
         <button class="secondary-button" data-action="show-category" data-category="cool" type="button">덥고 지쳤어요</button>
         <button class="secondary-button" data-action="show-detail" data-id="stay-usim" type="button">숙소 주소 보기</button>
-      </div>
-    </section>
-
-    <section class="panel">
-      <div class="section-head">
-        <h3>기준 위치</h3>
-        <p class="detail-text">${locationLabel()}</p>
-      </div>
-      <div class="actions" style="margin-top: 14px;">
-        <button class="secondary-button" data-action="use-current-location" type="button">현재 위치로 정렬</button>
-        ${state.userLocation ? `<button class="secondary-button" data-action="clear-current-location" type="button">마지막 방문지 기준</button>` : ""}
-        <button class="secondary-button" data-action="show-references" type="button">주차장/터미널 보기</button>
+        <button class="secondary-button" data-action="show-references" type="button">터미널 보기</button>
       </div>
     </section>
 
@@ -479,10 +658,29 @@ function renderCategory(category, subcategory = "all") {
       <h2>${group ? group.title : "전체 후보"}</h2>
       <p class="lead">${group ? group.helper : text.helper}</p>
     </section>
+    ${renderSortBar()}
     ${list.length ? `<section class="place-list">${list.map(renderPlaceCard).join("")}</section>` : `<p class="empty">${group ? group.empty : text.empty}</p>`}
   `;
 
   bindActions();
+}
+
+function renderSortBar() {
+  return `
+    <section class="sort-bar" aria-label="목록 정렬">
+      <p class="sort-label">${locationLabel()}</p>
+      <div class="sort-actions">
+        <button class="secondary-button" data-action="use-current-location" type="button">
+          ${state.userLocation ? "현재 위치로 다시 정렬" : "가까운 순으로 보기"}
+        </button>
+        ${
+          state.userLocation
+            ? `<button class="secondary-button" data-action="clear-current-location" type="button">방문지 기준으로</button>`
+            : ""
+        }
+      </div>
+    </section>
+  `;
 }
 
 function renderReferences() {
@@ -753,7 +951,7 @@ function clearCurrentLocation() {
   state.userLocation = null;
   saveState();
   showToast("마지막 방문지 기준으로 바꿨어요.");
-  renderHome();
+  renderHistoryView(currentView);
   replaceHistoryEntry();
 }
 
@@ -800,10 +998,11 @@ function getBasisLocation() {
 }
 
 function locationLabel() {
-  if (state.userLocation) return "현재 위치 권한을 받아 후보를 정렬하고 있어요.";
+  if (state.userLocation) return "지금 내 위치에서 가까운 순이에요.";
   const basis = getBasisLocation();
-  if (basis) return `${basis.name} 기준으로 가까운 순서를 계산하고 있어요.`;
-  return "위치 기준이 아직 없어요.";
+  if (basis?.id === state.lastPlaceId) return `${basis.name}에서 가까운 순이에요.`;
+  if (basis) return `${basis.name} 기준으로 가까운 순이에요.`;
+  return "아직 거리 기준이 없어요.";
 }
 
 function distanceTag(place) {
