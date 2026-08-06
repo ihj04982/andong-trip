@@ -199,9 +199,53 @@ h3 {
 }
 
 .place-list,
+.subcategory-list,
 .visited-list {
   display: grid;
   gap: 14px;
+}
+
+.subcategory-button {
+  display: grid;
+  gap: 7px;
+  width: 100%;
+  min-height: 94px;
+  padding: 18px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(35, 48, 42, 0.08);
+  text-align: left;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.subcategory-button:disabled {
+  color: var(--visited);
+  background: #f0ece0;
+  cursor: not-allowed;
+}
+
+.subcategory-button strong {
+  font-size: 23px;
+  line-height: 1.15;
+}
+
+.subcategory-button span {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.subcategory-button small {
+  justify-self: start;
+  padding: 6px 10px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 900;
 }
 
 .place-card {

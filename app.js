@@ -50,6 +50,7 @@ const places = [
     id: "iljik",
     name: "일직식당",
     category: "food",
+    subcategory: "fish",
     typeLabel: "식당",
     address: "경북 안동시 경동로 676 1층",
     lat: 36.5637,
@@ -64,6 +65,7 @@ const places = [
     id: "wolyeong-galbi",
     name: "월영갈비",
     category: "food",
+    subcategory: "galbi",
     typeLabel: "식당",
     address: "경북 안동시 경동로 677-8",
     lat: 36.5638,
@@ -78,6 +80,7 @@ const places = [
     id: "kimdaegam",
     name: "안동김대감",
     category: "food",
+    subcategory: "set",
     typeLabel: "식당",
     address: "경북 안동시 석주로 193 1,2층",
     lat: 36.5751,
@@ -92,6 +95,7 @@ const places = [
     id: "sinssegye-jjimdak",
     name: "안동신세계찜닭",
     category: "food",
+    subcategory: "jjimdak",
     typeLabel: "식당",
     address: "경북 안동시 번영길 10 1층",
     lat: 36.5639,
@@ -106,6 +110,7 @@ const places = [
     id: "wonjo-jjimdak",
     name: "원조안동찜닭",
     category: "food",
+    subcategory: "jjimdak",
     typeLabel: "식당",
     address: "경북 안동시 번영1길 47 1층",
     lat: 36.5637,
@@ -120,6 +125,7 @@ const places = [
     id: "mammoth",
     name: "맘모스",
     category: "cafe",
+    subcategory: "bakery",
     typeLabel: "카페/간식",
     address: "경북 안동시 문화광장길 34 1층",
     lat: 36.5645,
@@ -134,6 +140,7 @@ const places = [
     id: "wolyeongdang",
     name: "월영당",
     category: "cafe",
+    subcategory: "hanok",
     typeLabel: "카페",
     address: "경북 안동시 민속촌길 26",
     lat: 36.5762,
@@ -148,6 +155,7 @@ const places = [
     id: "achaga",
     name: "아차가",
     category: "cafe",
+    subcategory: "gelato",
     typeLabel: "간식",
     address: "경북 안동시 문화광장길 40-5 1층",
     lat: 36.5649,
@@ -162,6 +170,7 @@ const places = [
     id: "gurume-396",
     name: "구름에396커피",
     category: "cafe",
+    subcategory: "hanok",
     typeLabel: "카페",
     address: "경북 안동시 민속촌길 200",
     lat: 36.5794,
@@ -176,6 +185,7 @@ const places = [
     id: "coffee-396",
     name: "396커피컴퍼니",
     category: "cafe",
+    subcategory: "coffee",
     typeLabel: "카페",
     address: "경북 안동시 옥동길 32 1층",
     lat: 36.5604,
@@ -190,6 +200,7 @@ const places = [
     id: "hahoe",
     name: "안동하회마을",
     category: "sight",
+    subcategory: "village",
     typeLabel: "관광지",
     address: "경북 안동시 풍천면 하회리 1176-1",
     lat: 36.5391,
@@ -204,6 +215,7 @@ const places = [
     id: "byeongsan",
     name: "병산서원",
     category: "sight",
+    subcategory: "seowon",
     typeLabel: "관광지",
     address: "경북 안동시 풍천면 병산길 386",
     lat: 36.5397,
@@ -218,6 +230,7 @@ const places = [
     id: "imcheonggak",
     name: "임청각",
     category: "sight",
+    subcategory: "short",
     typeLabel: "관광지",
     address: "경북 안동시 임청각길 63",
     lat: 36.5689,
@@ -253,9 +266,72 @@ const categoryText = {
   }
 };
 
+const subcategoryText = {
+  food: {
+    fish: {
+      title: "간고등어",
+      helper: "안동다운 생선 정식이 당길 때",
+      empty: "간고등어 후보는 다녀왔어요."
+    },
+    jjimdak: {
+      title: "찜닭",
+      helper: "구시장 찜닭골목에서 든든하게",
+      empty: "찜닭 후보는 다녀왔어요."
+    },
+    galbi: {
+      title: "갈비/고기",
+      helper: "고기 식사로 확실하게 먹고 싶을 때",
+      empty: "갈비/고기 후보는 다녀왔어요."
+    },
+    set: {
+      title: "한 번에 먹기",
+      helper: "찜닭과 간고등어를 같이 고민할 때",
+      empty: "세트형 후보는 다녀왔어요."
+    }
+  },
+  cafe: {
+    bakery: {
+      title: "빵/베이커리",
+      helper: "크림치즈빵처럼 사 가기 좋은 간식",
+      empty: "베이커리 후보는 다녀왔어요."
+    },
+    gelato: {
+      title: "젤라또",
+      helper: "폭염에 바로 식히는 짧은 간식",
+      empty: "젤라또 후보는 다녀왔어요."
+    },
+    hanok: {
+      title: "한옥/월영교 근처",
+      helper: "월영교 동선에서 분위기 있게 쉬기",
+      empty: "한옥 카페 후보는 다녀왔어요."
+    },
+    coffee: {
+      title: "커피 본점",
+      helper: "커피 맛과 실내 휴식이 우선일 때",
+      empty: "커피 본점 후보는 다녀왔어요."
+    }
+  },
+  sight: {
+    village: {
+      title: "전통마을",
+      helper: "넓게 걷는 대표 관광 코스",
+      empty: "전통마을 후보는 다녀왔어요."
+    },
+    seowon: {
+      title: "서원",
+      helper: "풍경 좋은 야외 문화유산",
+      empty: "서원 후보는 다녀왔어요."
+    },
+    short: {
+      title: "짧게 보는 역사",
+      helper: "시내 동선에서 부담 적게 들르기",
+      empty: "짧은 역사 코스는 다녀왔어요."
+    }
+  }
+};
+
 let state = loadState();
 let currentView = { name: "home" };
-let previousView = null;
 let toastTimer;
 
 const app = document.querySelector("#app");
@@ -263,7 +339,7 @@ const toast = document.querySelector("#toast");
 const resetButton = document.querySelector("#resetButton");
 
 resetButton.addEventListener("click", resetTrip);
-window.history.replaceState({ appView: "home" }, "", window.location.href);
+window.history.replaceState({ view: { name: "home" } }, "", window.location.href);
 window.addEventListener("popstate", handleBrowserBack);
 
 if ("serviceWorker" in navigator) {
@@ -358,18 +434,52 @@ function choiceButton(category, label, helper) {
   `;
 }
 
-function renderCategory(category) {
-  currentView = { name: "category", category };
+function renderSubcategories(category) {
+  currentView = { name: "subcategories", category };
   const text = categoryText[category];
-  const list = sortedCandidates(category);
+  const groups = Object.entries(subcategoryText[category] || {});
 
   app.innerHTML = `
-    <button class="plain-button back-button" data-action="home" type="button">← 처음 화면</button>
+    <button class="plain-button back-button" data-action="back" type="button">← 처음 화면</button>
     <section class="section-head">
       <h2>${text.title}</h2>
-      <p class="lead">${text.helper}</p>
+      <p class="lead">먼저 원하는 느낌을 골라주세요. 다음 화면에서 후보 장소를 보여드릴게요.</p>
     </section>
-    ${list.length ? `<section class="place-list">${list.map(renderPlaceCard).join("")}</section>` : `<p class="empty">${text.empty}</p>`}
+    <section class="subcategory-list">
+      ${groups.map(([subcategory, group]) => renderSubcategoryButton(category, subcategory, group)).join("")}
+    </section>
+    <button class="secondary-button" data-action="show-category-list" data-category="${category}" data-subcategory="all" type="button">전체 후보 보기</button>
+  `;
+
+  bindActions();
+}
+
+function renderSubcategoryButton(category, subcategory, group) {
+  const count = candidateCount(category, subcategory);
+  return `
+    <button class="subcategory-button" data-action="show-category-list" data-category="${category}" data-subcategory="${subcategory}" type="button" ${count ? "" : "disabled"}>
+      <strong>${group.title}</strong>
+      <span>${group.helper}</span>
+      <small>${count ? `${count}곳 남음` : "남은 곳 없음"}</small>
+    </button>
+  `;
+}
+
+function renderCategory(category, subcategory = "all") {
+  currentView = { name: "category", category, subcategory };
+  const text = categoryText[category];
+  const group = subcategory === "all" ? null : subcategoryText[category]?.[subcategory];
+  const list = sortedCandidates(category, subcategory);
+  const backLabel = category === "cool" ? "처음 화면" : categoryBackLabel(category);
+
+  app.innerHTML = `
+    <button class="plain-button back-button" data-action="back" data-category="${category}" type="button">← ${backLabel}</button>
+    <section class="section-head">
+      <p class="eyebrow">${text.title}</p>
+      <h2>${group ? group.title : "전체 후보"}</h2>
+      <p class="lead">${group ? group.helper : text.helper}</p>
+    </section>
+    ${list.length ? `<section class="place-list">${list.map(renderPlaceCard).join("")}</section>` : `<p class="empty">${group ? group.empty : text.empty}</p>`}
   `;
 
   bindActions();
@@ -380,7 +490,7 @@ function renderReferences() {
   const references = places.filter((place) => place.category === "reference");
 
   app.innerHTML = `
-    <button class="plain-button back-button" data-action="home" type="button">← 처음 화면</button>
+    <button class="plain-button back-button" data-action="back" type="button">← 처음 화면</button>
     <section class="section-head">
       <h2>참고 지점</h2>
       <p class="lead">추천 후보에는 넣지 않고, 필요할 때 주소만 봅니다.</p>
@@ -399,6 +509,7 @@ function renderPlaceCard(place) {
       <div class="place-top">
         <div class="place-meta">
           <span class="tag">${place.typeLabel}</span>
+          ${subcategoryTag(place)}
           <span class="tag ${place.indoor ? "good" : "hot"}">${place.indoor ? "실내 위주" : "야외 많음"}</span>
           ${distanceTag(place)}
           ${hotWarning ? `<span class="tag hot">지금은 너무 더워요</span>` : ""}
@@ -429,9 +540,6 @@ function renderDetail(placeId) {
     return;
   }
 
-  if (currentView.name !== "detail") {
-    previousView = { ...currentView };
-  }
   currentView = { name: "detail", id: place.id };
   const visited = state.visited.includes(place.id);
 
@@ -488,6 +596,18 @@ function addressBox(place) {
   `;
 }
 
+function subcategoryTag(place) {
+  const label = subcategoryText[place.category]?.[place.subcategory]?.title;
+  return label ? `<span class="tag">${label}</span>` : "";
+}
+
+function categoryBackLabel(category) {
+  if (category === "food") return "밥 먹으러";
+  if (category === "cafe") return "카페 가기";
+  if (category === "sight") return "구경 가기";
+  return "처음 화면";
+}
+
 function renderVisitedList() {
   const visited = state.visited.map(findPlace).filter(Boolean);
   if (!visited.length) {
@@ -522,20 +642,38 @@ function handleAction(event) {
   const action = target.dataset.action;
   const id = target.dataset.id;
   const category = target.dataset.category;
+  const subcategory = target.dataset.subcategory;
 
-  if (action === "home") renderHome();
-  if (action === "back") goBack();
+  if (action === "home") {
+    if (currentView.name === "home") {
+      renderHome();
+      replaceHistoryEntry();
+    } else {
+      window.history.back();
+    }
+  }
+  if (action === "back") {
+    window.history.back();
+  }
   if (action === "show-category") {
-    pushHistoryEntry("category");
-    renderCategory(category);
+    if (category === "cool") {
+      renderCategory(category);
+    } else {
+      renderSubcategories(category);
+    }
+    pushHistoryEntry();
+  }
+  if (action === "show-category-list") {
+    renderCategory(category, subcategory);
+    pushHistoryEntry();
   }
   if (action === "show-detail") {
-    pushHistoryEntry("detail");
     renderDetail(id);
+    pushHistoryEntry();
   }
   if (action === "show-references") {
-    pushHistoryEntry("references");
     renderReferences();
+    pushHistoryEntry();
   }
   if (action === "visit") markVisited(id);
   if (action === "unvisit") unmarkVisited(id);
@@ -553,6 +691,7 @@ function markVisited(id) {
   saveState();
   showToast("갔음 처리했어요.");
   renderHome();
+  replaceHistoryEntry();
 }
 
 function unmarkVisited(id) {
@@ -563,6 +702,7 @@ function unmarkVisited(id) {
   saveState();
   showToast("갔음 처리를 취소했어요.");
   renderHome();
+  replaceHistoryEntry();
 }
 
 async function copyAddress(id) {
@@ -601,7 +741,8 @@ function useCurrentLocation() {
       };
       saveState();
       showToast("현재 위치 기준으로 정렬합니다.");
-      renderHome();
+      renderHistoryView(currentView);
+      replaceHistoryEntry();
     },
     () => showToast("위치 권한이 없어 마지막 장소 기준으로 보여드릴게요."),
     { enableHighAccuracy: true, timeout: 8000, maximumAge: 300000 }
@@ -613,6 +754,7 @@ function clearCurrentLocation() {
   saveState();
   showToast("마지막 방문지 기준으로 바꿨어요.");
   renderHome();
+  replaceHistoryEntry();
 }
 
 function resetTrip() {
@@ -623,15 +765,21 @@ function resetTrip() {
   saveState();
   showToast("처음부터 다시 시작합니다.");
   renderHome();
+  replaceHistoryEntry();
 }
 
-function sortedCandidates(category) {
+function sortedCandidates(category, subcategory = "all") {
   const candidates = selectablePlaces().filter((place) => {
     if (category === "cool") return place.indoor && !state.visited.includes(place.id);
-    return place.category === category && !state.visited.includes(place.id);
+    if (place.category !== category || state.visited.includes(place.id)) return false;
+    return subcategory === "all" || place.subcategory === subcategory;
   });
 
   return candidates.sort((a, b) => scorePlace(a) - scorePlace(b));
+}
+
+function candidateCount(category, subcategory) {
+  return sortedCandidates(category, subcategory).length;
 }
 
 function scorePlace(place) {
@@ -690,26 +838,36 @@ function findPlace(id) {
   return places.find((place) => place.id === id);
 }
 
-function goBack() {
-  if (currentView.name === "detail" && previousView?.name === "category") {
-    renderCategory(previousView.category);
+function handleBrowserBack(event) {
+  renderHistoryView(event.state?.view || { name: "home" });
+}
+
+function renderHistoryView(view) {
+  if (view.name === "subcategories") {
+    renderSubcategories(view.category);
     return;
   }
-  if (currentView.name === "detail" && previousView?.name === "references") {
+  if (view.name === "category") {
+    renderCategory(view.category, view.subcategory);
+    return;
+  }
+  if (view.name === "detail") {
+    renderDetail(view.id);
+    return;
+  }
+  if (view.name === "references") {
     renderReferences();
     return;
   }
   renderHome();
 }
 
-function handleBrowserBack() {
-  if (currentView.name === "home") return;
-  goBack();
-  pushHistoryEntry("home");
+function pushHistoryEntry() {
+  window.history.pushState({ view: { ...currentView } }, "", window.location.href);
 }
 
-function pushHistoryEntry(appView) {
-  window.history.pushState({ appView }, "", window.location.href);
+function replaceHistoryEntry() {
+  window.history.replaceState({ view: { ...currentView } }, "", window.location.href);
 }
 
 function showToast(message) {
